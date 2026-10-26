@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YNPF0ZQPL2"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-YNPF0ZQPL2');window.sgTrack=function(n,p){try{gtag('event',n,p||{})}catch(e){}};</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<script>
+/* Swallow benign cross-origin "Script error." events (no actionable info)
+   so they don't surface as a runtime error overlay. Real same-origin
+   errors (with a message/filename) still propagate normally.
+   NOTE: the standalone bundle injects its OWN capture-phase error overlay
+   (#__bundler_err) that runs before this handler and would otherwise show
+   "[bundle] Script error." for these benign cross-origin events — so we
+   also strip that banner whenever it only contains benign noise. */
+function __dropBenignBundleBanner() {
+  var d = document.getElementById("__bundler_err");
+  if (!d) return;
+  var lines = d.textContent.split(String.fromCharCode(10)).filter(Boolean);
+  if (lines.length && lines.every(function (l) { return l === "[bundle] Script error."; })) {
+    d.remove();
+  }
+}
+window.addEventListener("error", function (e) {
+  var benign = e && (!e.message || e.message === "Script error.") && !e.filename;
+  if (benign) { e.stopImmediatePropagation(); e.preventDefault(); }
+  __dropBenignBundleBanner(); // bundler overlay (if any) already appended its line
+  if (benign) return true;
+}, true);
+window.onerror = function (msg, src) {
+  if ((!msg || msg === "Script error.") && !src) return true; // swallow benign cross-origin
+  return false;
+};
+// Sweep any banner that appeared before this handler was registered (during unpack).
+[0, 300, 1200].forEach(function (t) { setTimeout(__dropBenignBundleBanner, t); });
+
+/* Shared language helper (used by both the static landing and the React app).
+   Default English; Japanese only when the browser language is ja or the user
+   explicitly picked it. Choice persists in localStorage. */
+window.SG = window.SG || {};
+SG.getLang = function () {
+  try { var s = localStorage.getItem("splitgram_lang"); if (s === "ja" || s === "en") return s; } catch (e) {}
+  return "ja";
+};
+document.documentElement.lang = SG.getLang();
+</script>
+
+<title>インスタ カルーセル・グリッド分割｜継ぎ目がズレない無料ツール - Splitgram</title>
+<meta name="description" content="写真を3枚に分割してインスタのカルーセル投稿に。サムネ（3:4）と投稿（4:5）の両方で継ぎ目がズレない、パノラマにも強い無料の分割ツール。ブラウザ完結・アップロード不要・写真の送信なし。" />
+<meta name="keywords" content="インスタ カルーセル 分割,インスタ 3分割,インスタ グリッド 分割,インスタ 分割 ズレない,インスタ グリッド ズレる,パノラマ 分割 インスタ,パノラマ シームレス 分割,写真 分割 サイト,instagram carousel split,instagram grid splitter,instagram photo split free,crop panorama for instagram,インスタ 写真 繋げる,継ぎ目 ズレない,instagram seamless grid" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://splitgram.app/" />
+<link rel="icon" type="image/svg+xml" href="https://splitgram.app/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://splitgram.app/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://splitgram.app/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://splitgram.app/apple-touch-icon.png" />
+<link rel="manifest" href="https://splitgram.app/site.webmanifest" />
+<meta name="theme-color" content="#CCFF00" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Splitgram" />
+<meta property="og:title" content="インスタ カルーセル・グリッド分割｜継ぎ目がズレない - Splitgram" />
+<meta property="og:description" content="写真を3枚に分割してインスタのカルーセルに。サムネも投稿も継ぎ目がズレない無料ツール。Split for Instagram carousel &amp; grid — seams stay perfect. Free, browser-only." />
+<meta property="og:url" content="https://splitgram.app/" />
+<meta property="og:locale" content="ja_JP" />
+<meta property="og:image" content="https://splitgram.app/og.png" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="インスタ カルーセル・グリッド分割｜継ぎ目がズレない無料ツール - Splitgram" />
+<meta name="twitter:description" content="写真を3枚に分割してインスタのカルーセル・プロフィールグリッドに。サムネ（3:4）と投稿（4:5）の両方で継ぎ目がピタッと揃う。無料・ブラウザ完結・写真は端末から出ません。" />
+<meta name="twitter:image" content="https://splitgram.app/og.png" />
+
+<!-- Structured data: WebApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Splitgram",
+  "alternateName": ["Instagram carousel splitter", "Instagram grid splitter", "インスタ カルーセル 分割"],
+  "url": "https://splitgram.app/",
+  "applicationCategory": "MultimediaApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ja",
+  "description": "横長の写真やバナーをInstagramのカルーセル・プロフィールグリッド用に綺麗に分割できる無料ツール。ブラウザだけで完結し画像のアップロードは不要。",
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "JPY", "name": "無料プラン" },
+    { "@type": "Offer", "price": "500", "priceCurrency": "JPY", "name": "Pro（買い切り）" }
+  ],
+  "featureList": [
+    "横長写真を3枚のカルーセルに分割",
+    "プロフィールグリッド用の9分割・モザイク",
+    "3:4サムネと4:5投稿の継ぎ目を自動調整",
+    "ブラウザ完結・アップロード不要",
+    "投稿順に自動リネームしてまとめて保存"
+  ]
+}
+</script>
+<!-- Structured data: FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "写真を3分割してインスタのカルーセルにできますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。写真を3枚に分割してカルーセル投稿できます。3×2・3×3のグリッド分割にも対応。Yes — split into 3 panels for a carousel, or 6/9 panels for a profile grid mosaic." }
+    },
+    {
+      "@type": "Question",
+      "name": "画像はサーバーにアップロードされますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "いいえ。画像の読み込みから分割・書き出しまですべてブラウザ内で完結します。写真が外部に送信されることはありません。" }
+    },
+    {
+      "@type": "Question",
+      "name": "無料で使えますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。分割機能はすべて無料で使えます。透かしなし・フル解像度で書き出したい場合のみ、買い切りのProをご利用いただけます。" }
+    },
+    {
+      "@type": "Question",
+      "name": "インスタのグリッド分割で継ぎ目がズレる問題を解決できますか？ / How does Splitgram keep seams aligned?",
+      "acceptedAnswer": { "@type": "Answer", "text": "多くのツールはグリッドのサムネ(3:4)だけに合わせて切るため、投稿(4:5)を開くと継ぎ目がズレます。Splitgramは隣どうしの画像にのりしろ（オーバーラップ）を持たせて書き出すので、サムネでも投稿でも継ぎ目がピタッと合います。Most tools only crop for the thumbnail (3:4), so seams break when you open a post (4:5). Splitgram adds an overlap between tiles, so seams stay aligned in both views." }
+    },
+    {
+      "@type": "Question",
+      "name": "パノラマ写真をInstagram用にシームレスに分割できますか？",
+      "acceptedAnswer": { "@type": "Answer", "text": "はい。横長のパノラマ写真をカルーセル用に分割すると、スワイプしたときに1枚の風景として繋がります。のりしろ（オーバーラップ）を持たせて書き出すので、グリッドに並べても、タップして開いても継ぎ目がズレません。" }
+    }
+  ]
+}
+</script>
+
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+<rect width="100" height="100" fill="#FBF6EA"/>
+<g transform="translate(31,30)">
+<rect x="0" y="0" width="11" height="40" rx="3" fill="#16150F"/>
+<rect x="13.5" y="0" width="11" height="40" rx="3" fill="#CCFF00" stroke="#16150F" stroke-width="2"/>
+<rect x="27" y="0" width="11" height="40" rx="3" fill="#16150F"/>
+</g>
+</svg>
+</template>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Expanded:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="root">
+  <!-- Instant branded splash: inline-styled so it paints before CSS/Babel load.
+       React replaces #root's contents on mount, so this disappears automatically. -->
+  <div id="boot" style="position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;background:#FBF6EA;font-family:'Archivo','Helvetica Neue',Arial,sans-serif;">
+    <div style="display:flex;gap:7px;align-items:flex-end;height:64px;">
+      <i style="display:block;width:15px;height:64px;border-radius:5px;background:#16150F;border:2px solid #16150F;animation:bootbar 1s ease-in-out infinite;"></i>
+      <i style="display:block;width:15px;height:64px;border-radius:5px;background:#CCFF00;border:2px solid #16150F;animation:bootbar 1s ease-in-out .15s infinite;"></i>
+      <i style="display:block;width:15px;height:64px;border-radius:5px;background:#16150F;border:2px solid #16150F;animation:bootbar 1s ease-in-out .3s infinite;"></i>
+    </div>
+    <div style="font-weight:800;font-size:17px;letter-spacing:-0.01em;color:#16150F;">Splitgram</div>
+    <div style="font-size:12px;font-weight:600;color:#908C7E;" data-i18n="l_loading">読み込んでいます…</div>
+  </div>
+</div>
+<style>
+  @keyframes bootbar { 0%,100%{transform:scaleY(.45);transform-origin:bottom;} 50%{transform:scaleY(1);transform-origin:bottom;} }
+</style>
+
+<!-- ============ SEO landing content (crawlable, below the tool) ============ -->
+<main>
+  <section class="seo">
+    <h1 data-i18n="l_h1">インスタの写真を3枚に分割。カルーセルも、グリッドも、継ぎ目がズレない。</h1>
+    <p class="lead" data-i18n="l_lead">
+      横長の写真やバナーを、Instagramのカルーセルやプロフィールグリッド用に分割。
+      <b>グリッドの並びも、開いた投稿も、継ぎ目がズレない</b>——サムネイル（3:4）と投稿表示（4:5）の
+      差を自動で計算するから、プロフィールに並べても、スワイプして開いても、ぴったり繋がります。
+      ブラウザだけで完結、画像のアップロードは不要です。
+    </p>
+  </section>
+
+  <section class="seo" id="proof">
+    <h2 data-i18n="l_proof_h2">継ぎ目がズレない、唯一の分割。</h2>
+    <p class="lead" style="margin-bottom:32px" data-i18n="l_proof_lead">
+      多くのツールは「グリッド表示」だけ合わせて切るので、<b>投稿をタップして開くと継ぎ目がズレます</b>。
+      スプるはサムネ（3:4）と投稿（4:5）の両方を計算して切るから、どちらで見てもぴったり。
+    </p>
+    <div class="compare">
+      <div class="cmp-card cmp-bad">
+        <div class="cmp-tag cmp-tag-bad" data-i18n="l_cmp_bad_tag">✕ ふつうの分割ツール</div>
+        <div class="cmp-strip cmp-strip-bad">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="cmp-cap" data-i18n="l_cmp_bad_cap">開くと継ぎ目がガタつく</div>
+      </div>
+      <div class="cmp-card cmp-good">
+        <div class="cmp-tag cmp-tag-good" data-i18n="l_cmp_good_tag">✓ スプる</div>
+        <div class="cmp-strip cmp-strip-good">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="cmp-cap" data-i18n="l_cmp_good_cap">開いても1枚の絵のように繋がる</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo" id="about">
+    <h2 data-i18n="l_about_h2">使い方は3ステップ</h2>
+    <div class="seo-grid">
+      <div class="seo-card">
+        <div class="num">1</div>
+        <h3 data-i18n="l_step1_h">画像をドロップ</h3>
+        <p data-i18n="l_step1_p">横長の写真やバナーを画面にドラッグ＆ドロップ、またはクリックで選択します。</p>
+      </div>
+      <div class="seo-card">
+        <div class="num">2</div>
+        <h3 data-i18n="l_step2_h">分割を調整</h3>
+        <p data-i18n="l_step2_p">3分割や9分割などのレイアウトを選び、ドラッグとズームで見せたい範囲を合わせます。</p>
+      </div>
+      <div class="seo-card">
+        <div class="num">3</div>
+        <h3 data-i18n="l_step3_h">保存して投稿</h3>
+        <p data-i18n="l_step3_p">各スライスを書き出し、番号順にInstagramへ投稿するだけ。グリッドが綺麗に揃います。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo">
+    <h2 data-i18n="l_feat_h2">Splitgram の特長</h2>
+    <div class="seo-grid">
+      <div class="seo-card">
+        <h3 data-i18n="l_feat1_h">パノラマも継ぎ目がズレない</h3>
+        <p data-i18n="l_feat1_p">Instagramのサムネイルは3:4、投稿表示は4:5。その差を見込んで切り出すので、パノラマ写真でもグリッドでもカルーセルでも継ぎ目が揃います。</p>
+      </div>
+      <div class="seo-card">
+        <h3 data-i18n="l_feat2_h">アップロード不要で安全</h3>
+        <p data-i18n="l_feat2_p">画像処理はすべてあなたのブラウザの中だけで行われます。写真がサーバーに送られることはありません。</p>
+      </div>
+      <div class="seo-card">
+        <h3 data-i18n="l_feat3_h">投稿順に自動リネーム</h3>
+        <p data-i18n="l_feat3_p">Proは、そのままアップロードすれば正しく並ぶ順番でファイル名を付与。迷わず投稿できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seo">
+    <h2 data-i18n="l_faq_h2">よくある質問</h2>
+    <div class="faq-item">
+      <h3 data-i18n="l_faq1_q">インスタ用に画像を何枚に分割できますか？</h3>
+      <p data-i18n="l_faq1_a">横長写真を3枚のカルーセルに分割するほか、3×2の6枚、3×3の9枚など、プロフィールグリッド用のモザイク分割にも対応しています。</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="l_faq2_q">画像はサーバーにアップロードされますか？</h3>
+      <p data-i18n="l_faq2_a">いいえ。画像の読み込みから分割・書き出しまで、すべてブラウザ内で完結します。写真が外部に送信されることはありません。</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="l_faq3_q">無料で使えますか？</h3>
+      <p data-i18n="l_faq3_a">はい。分割機能はすべて無料で使えます。透かしなし・フル解像度で書き出したい場合のみ、買い切りのProをご利用いただけます。</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="l_faq4_q">分割した画像はどの順番で投稿すればいいですか？</h3>
+      <p data-i18n="l_faq4_a">プロフィールのグリッドを正しく並べるには、最後のマスから逆順に投稿します。Proでは、そのままアップロードできる順番で自動的にファイル名が振られます。</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="l_faq5_q">パノラマ写真をシームレスに分割できますか？</h3>
+      <p data-i18n="l_faq5_a">はい。横長のパノラマをカルーセル用に分割すると、スワイプしたときに1枚の風景として繋がります。のりしろ（オーバーラップ）を持たせて書き出すので、グリッドに並べても開いても継ぎ目がズレません。</p>
+    </div>
+    <div class="faq-item">
+      <h3 data-i18n="l_faq6_q">なぜ分割した画像は開くと継ぎ目がズレるの？</h3>
+      <p data-i18n="l_faq6_a">Instagramはプロフィールのサムネを縦長の3:4、投稿をタップして開いたときは4:5で表示します。多くのツールはグリッドだけに合わせて切るため、開くと上下がずれて継ぎ目がズレます。Splitgramは隣どうしにのりしろを持たせて書き出すので、どちらで見てもズレません。</p>
+    </div>
+  </section>
+
+  <footer class="seo-foot" data-i18n="l_foot">
+    Splitgram — インスタグラム画像分割ツール · ブラウザだけで完結 · © 2026
+  </footer>
+</main>
+
+<script>
+/* ---- Landing-page i18n: swaps [data-i18n] content + <title>/description ---- */
+(function () {
+  var L = {
+    l_loading:      { ja: "読み込んでいます…", en: "Loading…" },
+    l_h1:           { ja: "インスタの写真を3枚に分割。カルーセルも、グリッドも、継ぎ目がズレない。", en: "Split photos for Instagram carousel & grid — seams never break." },
+    l_lead:         { ja: "写真を3枚に分けてインスタに投稿すると、プロフィールで1枚の大きな絵になります。ただ、サムネイル（3:4）と投稿表示（4:5）の比率の違いで<b>継ぎ目がズレる</b>のが悩みのタネ。Splitgramは隣どうしの画像を少し重ねて書き出すことで、グリッドでも、スワイプして開いた投稿でも継ぎ目がぴったり合います。ブラウザだけで完結——写真が外部に送信されることはありません。",
+                      en: "Split a photo into 3 panels and post them as a carousel — your Instagram profile becomes one big, seamless picture. The catch: thumbnail (3:4) and post (4:5) have different ratios, so seams usually break when someone opens a post. Splitgram solves this by exporting tiles with a small overlap, so the seams line up <b>in both the grid and the opened post</b>. Runs entirely in your browser — your photos never leave your device." },
+    l_proof_h2:     { ja: "継ぎ目がズレない、唯一の分割。", en: "The only split where the seams never break." },
+    l_proof_lead:   { ja: "多くのツールは「グリッド表示」だけ合わせて切るので、<b>投稿をタップして開くと継ぎ目がズレます</b>。スプるはサムネ（3:4）と投稿（4:5）の両方を計算して切るから、どちらで見てもぴったり。",
+                      en: "Most tools only match the <b>grid</b> view, so the seams jump the moment you tap a post open. Splitgram cuts for both the thumbnail (3:4) and the post (4:5), so it lines up either way." },
+    l_cmp_bad_tag:  { ja: "✕ ふつうの分割ツール", en: "✕ Ordinary splitters" },
+    l_cmp_bad_cap:  { ja: "開くと継ぎ目がガタつく", en: "Seams jump when opened" },
+    l_cmp_good_tag: { ja: "✓ スプる", en: "✓ Splitgram" },
+    l_cmp_good_cap: { ja: "開いても1枚の絵のように繋がる", en: "Reads as one picture, even opened" },
+    l_about_h2:     { ja: "使い方は3ステップ", en: "Three steps" },
+    l_step1_h:      { ja: "画像をドロップ", en: "Drop your image" },
+    l_step1_p:      { ja: "横長の写真やバナーを画面にドラッグ＆ドロップ、またはクリックで選択します。", en: "Drag & drop a wide photo or banner onto the screen, or click to choose a file." },
+    l_step2_h:      { ja: "分割を調整", en: "Adjust the split" },
+    l_step2_p:      { ja: "3分割や9分割などのレイアウトを選び、ドラッグとズームで見せたい範囲を合わせます。", en: "Pick a layout like 3-up or 9-up, then drag and zoom to frame exactly what you want to show." },
+    l_step3_h:      { ja: "保存して投稿", en: "Save and post" },
+    l_step3_p:      { ja: "各スライスを書き出し、番号順にInstagramへ投稿するだけ。グリッドが綺麗に揃います。", en: "Export each slice and post them to Instagram in order. Your grid lines up neatly." },
+    l_feat_h2:      { ja: "Splitgram の特長", en: "Why Splitgram" },
+    l_feat1_h:      { ja: "パノラマも継ぎ目がズレない", en: "Seams never break — even panoramas" },
+    l_feat1_p:      { ja: "Instagramのサムネイルは3:4、投稿表示は4:5。その差を見込んで切り出すので、パノラマ写真でもグリッドでもカルーセルでも継ぎ目が揃います。", en: "Instagram thumbnails are 3:4 and the post view is 4:5. We cut with that difference in mind, so seams align for panoramas, grids and carousels alike." },
+    l_feat2_h:      { ja: "アップロード不要で安全", en: "Private — no uploads" },
+    l_feat2_p:      { ja: "画像処理はすべてあなたのブラウザの中だけで行われます。写真がサーバーに送られることはありません。", en: "All image processing happens inside your browser. Your photos are never sent to a server." },
+    l_feat3_h:      { ja: "投稿順に自動リネーム", en: "Auto-named in post order" },
+    l_feat3_p:      { ja: "Proは、そのままアップロードすれば正しく並ぶ順番でファイル名を付与。迷わず投稿できます。", en: "Pro names the files in the exact order to upload, so they line up correctly — no guesswork." },
+    l_faq_h2:       { ja: "よくある質問", en: "FAQ" },
+    l_faq1_q:       { ja: "インスタ用に画像を何枚に分割できますか？", en: "How many pieces can I split an image into?" },
+    l_faq1_a:       { ja: "横長写真を3枚のカルーセルに分割するほか、3×2の6枚、3×3の9枚など、プロフィールグリッド用のモザイク分割にも対応しています。", en: "You can split a wide photo into a 3-piece carousel, or into mosaics like 6 (3×2) and 9 (3×3) for a profile grid." },
+    l_faq2_q:       { ja: "画像はサーバーにアップロードされますか？", en: "Are my images uploaded to a server?" },
+    l_faq2_a:       { ja: "いいえ。画像の読み込みから分割・書き出しまで、すべてブラウザ内で完結します。写真が外部に送信されることはありません。", en: "No. Everything from loading to splitting and exporting happens inside your browser. Your photos are never sent anywhere." },
+    l_faq3_q:       { ja: "無料で使えますか？", en: "Is it free?" },
+    l_faq3_a:       { ja: "はい。分割機能はすべて無料で使えます。透かしなし・フル解像度で書き出したい場合のみ、買い切りのProをご利用いただけます。", en: "Yes. All splitting features are free. The one-time Pro is only needed when you want to export without a watermark at full resolution." },
+    l_faq4_q:       { ja: "分割した画像はどの順番で投稿すればいいですか？", en: "What order should I post the split images in?" },
+    l_faq4_a:       { ja: "プロフィールのグリッドを正しく並べるには、最後のマスから逆順に投稿します。Proでは、そのままアップロードできる順番で自動的にファイル名が振られます。", en: "To line up your profile grid correctly, post from the last cell in reverse order. Pro automatically names the files in ready-to-upload order." },
+    l_faq5_q:       { ja: "パノラマ写真をシームレスに分割できますか？", en: "Can I split a panorama seamlessly?" },
+    l_faq5_a:       { ja: "はい。横長のパノラマをカルーセル用に分割すると、スワイプしたときに1枚の風景として繋がります。のりしろ（オーバーラップ）を持たせて書き出すので、グリッドに並べても開いても継ぎ目がズレません。", en: "Yes. Split a wide panorama into a carousel and it reads as one continuous scene as you swipe. Tiles are exported with a small overlap, so the seams stay aligned in the grid and when a post is opened." },
+    l_faq6_q:       { ja: "なぜ分割した画像は開くと継ぎ目がズレるの？", en: "Why do split images shift out of line when opened?" },
+    l_faq6_a:       { ja: "Instagramはプロフィールのサムネを縦長の3:4、投稿をタップして開いたときは4:5で表示します。多くのツールはグリッドだけに合わせて切るため、開くと上下がずれて継ぎ目がズレます。Splitgramは隣どうしにのりしろを持たせて書き出すので、どちらで見てもズレません。", en: "Instagram shows profile thumbnails as a tall 3:4 but the post as 4:5 once tapped open. Most splitters cut only for the grid, so the pieces shift vertically and seams break when opened. Splitgram exports tiles with an overlap, so it lines up either way." },
+    l_foot:         { ja: "Splitgram — インスタグラム画像分割ツール · ブラウザだけで完結 · © 2026", en: "Splitgram — Instagram image splitter · Runs entirely in your browser · © 2026" }
+  };
+  var META = {
+    ja: { title: "インスタ カルーセル・グリッド分割｜継ぎ目がズレない無料ツール - Splitgram",
+          desc: "写真を3枚に分割してインスタのカルーセル投稿に。サムネ(3:4)と投稿(4:5)の両方で継ぎ目がズレない唯一の無料分割ツール。ブラウザ完結・写真の送信なし。" },
+    en: { title: "Instagram Carousel & Grid Photo Splitter — seam-perfect, free · Splitgram",
+          desc: "Split photos into 3-panel Instagram carousels or profile grids. Seams align on both the thumbnail (3:4) and post view (4:5). Free, runs entirely in your browser — no uploads." }
+  };
+  function apply(lang) {
+    if (lang !== "ja" && lang !== "en") lang = "en";
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var k = el.getAttribute("data-i18n");
+      if (L[k] && L[k][lang] != null) el.innerHTML = L[k][lang];
+    });
+    var m = META[lang];
+    if (m) {
+      document.title = m.title;
+      var d = document.querySelector('meta[name="description"]');
+      if (d) d.setAttribute("content", m.desc);
+    }
+    window.SG.lang = lang;
+  }
+  window.SG = window.SG || {};
+  SG.applyStaticLang = apply;
+  SG.setLang = function (lang) {
+    try { localStorage.setItem("splitgram_lang", lang); } catch (e) {}
+    apply(lang);
+  };
+  apply(SG.getLang ? SG.getLang() : "en");
+})();
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="splitter.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+</body>
+</html>
