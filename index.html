@@ -178,25 +178,26 @@ document.documentElement.lang = SG.getLang();
   </section>
 
   <section class="seo" id="proof">
-    <h2 data-i18n="l_proof_h2">継ぎ目がズレない、唯一の分割。</h2>
-    <p class="lead" style="margin-bottom:32px" data-i18n="l_proof_lead">
-      多くのツールは「グリッド表示」だけ合わせて切るので、<b>投稿をタップして開くと継ぎ目がズレます</b>。
-      スプるはサムネ（3:4）と投稿（4:5）の両方を計算して切るから、どちらで見てもぴったり。
-    </p>
+    <h2 data-i18n="l_proof_h2">プロフィールで、1枚の絵につながる。</h2>
+    <p class="lead" style="margin-bottom:32px" data-i18n="l_proof_lead">どちらも同じ画像を3:4のプロフィール表示で比較。重なりなく切ると、左右が隠れて絵柄が欠けます。Splitgramは隣り合う画像の切り出し範囲を重ね、中央の3:4領域がつながるようにします。</p>
     <div class="compare">
       <div class="cmp-card cmp-bad">
-        <div class="cmp-tag cmp-tag-bad" data-i18n="l_cmp_bad_tag">✕ ふつうの分割ツール</div>
+        <div class="cmp-tag cmp-tag-bad" data-i18n="l_cmp_bad_tag">重なりなし</div>
         <div class="cmp-strip cmp-strip-bad">
           <span></span><span></span><span></span>
         </div>
-        <div class="cmp-cap" data-i18n="l_cmp_bad_cap">開くと継ぎ目がガタつく</div>
+        <div class="cmp-detail" aria-hidden="true"><div class="cmp-strip cmp-strip-bad"><span></span><span></span><span></span></div></div>
+        <p class="cmp-detail-label">境目を拡大 / Seam detail</p>
+        <div class="cmp-cap" data-i18n="l_cmp_bad_cap">左右が隠れ、リボンの継ぎ目が飛ぶ</div>
       </div>
       <div class="cmp-card cmp-good">
-        <div class="cmp-tag cmp-tag-good" data-i18n="l_cmp_good_tag">✓ スプる</div>
+        <div class="cmp-tag cmp-tag-good" data-i18n="l_cmp_good_tag">重なりあり · Splitgram</div>
         <div class="cmp-strip cmp-strip-good">
           <span></span><span></span><span></span>
         </div>
-        <div class="cmp-cap" data-i18n="l_cmp_good_cap">開いても1枚の絵のように繋がる</div>
+        <div class="cmp-detail" aria-hidden="true"><div class="cmp-strip cmp-strip-good"><span></span><span></span><span></span></div></div>
+        <p class="cmp-detail-label">境目を拡大 / Seam detail</p>
+        <div class="cmp-cap" data-i18n="l_cmp_good_cap">中央の3:4領域がつながる</div>
       </div>
     </div>
   </section>
@@ -281,13 +282,12 @@ document.documentElement.lang = SG.getLang();
     l_h1:           { ja: "インスタの写真を3枚に分割。カルーセルも、グリッドも、継ぎ目がズレない。", en: "Split photos for Instagram carousel & grid — seams never break." },
     l_lead:         { ja: "写真を3枚に分けてインスタに投稿すると、プロフィールで1枚の大きな絵になります。ただ、サムネイル（3:4）と投稿表示（4:5）の比率の違いで<b>継ぎ目がズレる</b>のが悩みのタネ。Splitgramは隣どうしの画像を少し重ねて書き出すことで、グリッドでも、スワイプして開いた投稿でも継ぎ目がぴったり合います。ブラウザだけで完結——写真が外部に送信されることはありません。",
                       en: "Split a photo into 3 panels and post them as a carousel — your Instagram profile becomes one big, seamless picture. The catch: thumbnail (3:4) and post (4:5) have different ratios, so seams usually break when someone opens a post. Splitgram solves this by exporting tiles with a small overlap, so the seams line up <b>in both the grid and the opened post</b>. Runs entirely in your browser — your photos never leave your device." },
-    l_proof_h2:     { ja: "継ぎ目がズレない、唯一の分割。", en: "The only split where the seams never break." },
-    l_proof_lead:   { ja: "多くのツールは「グリッド表示」だけ合わせて切るので、<b>投稿をタップして開くと継ぎ目がズレます</b>。スプるはサムネ（3:4）と投稿（4:5）の両方を計算して切るから、どちらで見てもぴったり。",
-                      en: "Most tools only match the <b>grid</b> view, so the seams jump the moment you tap a post open. Splitgram cuts for both the thumbnail (3:4) and the post (4:5), so it lines up either way." },
-    l_cmp_bad_tag:  { ja: "✕ ふつうの分割ツール", en: "✕ Ordinary splitters" },
-    l_cmp_bad_cap:  { ja: "開くと継ぎ目がガタつく", en: "Seams jump when opened" },
-    l_cmp_good_tag: { ja: "✓ スプる", en: "✓ Splitgram" },
-    l_cmp_good_cap: { ja: "開いても1枚の絵のように繋がる", en: "Reads as one picture, even opened" },
+    l_proof_h2:     { ja: "プロフィールで、1枚の絵につながる。", en: "One connected picture on your profile." },
+    l_proof_lead:   { ja: "どちらも同じ画像を3:4のプロフィール表示で比較。重なりなく切ると、左右が隠れて絵柄が欠けます。Splitgramは隣り合う画像の切り出し範囲を重ね、中央の3:4領域がつながるようにします。", en: "Both examples show the same image in a 3:4 profile grid. Without overlap, cropped edges leave gaps in the picture. Splitgram overlaps adjacent crops so their central 3:4 areas connect." },
+    l_cmp_bad_tag:  { ja: "重なりなし", en: "Without overlap" },
+    l_cmp_bad_cap:  { ja: "左右が隠れ、リボンの継ぎ目が飛ぶ", en: "Cropped edges interrupt the ribbon" },
+    l_cmp_good_tag: { ja: "重なりあり · Splitgram", en: "With overlap \u00b7 Splitgram" },
+    l_cmp_good_cap: { ja: "中央の3:4領域がつながる", en: "The central 3:4 areas connect" },
     l_about_h2:     { ja: "使い方は3ステップ", en: "Three steps" },
     l_step1_h:      { ja: "画像をドロップ", en: "Drop your image" },
     l_step1_p:      { ja: "横長の写真やバナーを画面にドラッグ＆ドロップ、またはクリックで選択します。", en: "Drag & drop a wide photo or banner onto the screen, or click to choose a file." },

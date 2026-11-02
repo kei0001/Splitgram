@@ -509,21 +509,17 @@ input[type="range"]::-moz-range-thumb {
 }
 .cmp-tag-bad { background: #FFDFD8; }
 .cmp-tag-good { background: var(--accent); }
-.cmp-strip { display: flex; gap: 5px; border: var(--line); border-radius: 9px; overflow: hidden; padding: 5px; background: var(--ink); }
-.cmp-strip span {
-  flex: 1; aspect-ratio: 3/4; display: block; border-radius: 3px;
-  background-image:
-    repeating-linear-gradient(56deg, rgba(255,255,255,0) 0 20px, rgba(255,255,255,0.32) 20px 27px),
-    linear-gradient(120deg, #ff9a3d, #ff3d77 52%, #7b3dff);
-}
-.cmp-strip-good span { background-size: 300% 100%; }
-.cmp-strip-good span:nth-child(1) { background-position: 0% 50%; }
-.cmp-strip-good span:nth-child(2) { background-position: 50% 50%; }
-.cmp-strip-good span:nth-child(3) { background-position: 100% 50%; }
-.cmp-strip-bad span { background-size: 300% 100%; }
-.cmp-strip-bad span:nth-child(1) { background-position: 4% 50%; }
-.cmp-strip-bad span:nth-child(2) { background-position: 40% 50%; }
-.cmp-strip-bad span:nth-child(3) { background-position: 90% 50%; }
+.cmp-strip { display:flex; gap:0; border:var(--line); border-radius:9px; overflow:hidden; background:var(--paper); }
+.cmp-strip span { flex:1; min-width:0; aspect-ratio:3/4; display:block; background-image:url("assets/splitgram-demo.png"); background-repeat:no-repeat; }
+.cmp-strip-good span { background-size:300% 100%; }
+.cmp-strip-good span:nth-child(1) { background-position:0% 50%; }
+.cmp-strip-good span:nth-child(2) { background-position:50% 50%; }
+.cmp-strip-good span:nth-child(3) { background-position:100% 50%; }
+/* Three non-overlapping 4:5 crops, each with 3.125% removed per side. */
+.cmp-strip-bad span { background-size:320% 100%; }
+.cmp-strip-bad span:nth-child(1) { background-position:1.5151515% 50%; }
+.cmp-strip-bad span:nth-child(2) { background-position:50% 50%; }
+.cmp-strip-bad span:nth-child(3) { background-position:98.4848485% 50%; }
 .cmp-cap { font-size: 12px; font-weight: 700; color: var(--ink-2); margin-top: 12px; text-align: center; }
 .cmp-good .cmp-cap { color: var(--ink); }
 .faq-item:last-child { border-bottom: var(--line); }
@@ -609,3 +605,8 @@ input[type="range"]::-moz-range-thumb {
   .slice:active { transform: translate(1px, 1px); }
 }
 
+
+/* Magnify the first seam so the missing area is easy to compare. */
+.cmp-detail{height:110px;overflow:hidden;border:var(--line);border-radius:9px;margin-top:12px;position:relative}
+.cmp-detail .cmp-strip{position:absolute;width:300%;left:-50%;top:50%;transform:translateY(-45%);border:0;border-radius:0}
+.cmp-detail-label{font-size:11px;color:var(--ink-2);margin:8px 0 0}
