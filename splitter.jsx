@@ -114,8 +114,18 @@ function renderDownloadURL(img, { cols, rows, zoom, pan }, col, row, pro) {
   return cv.toDataURL("image/png");
 }
 
-/* ---------- demo gradient image (wide banner) ---------- */
+/* ---------- brand demo image, with a local fallback ---------- */
 function makeDemoImage() {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => makeFallbackDemoImage().then(resolve);
+    image.src = "assets/splitgram-demo.png";
+  });
+}
+
+/* ---------- fallback gradient image (wide banner) ---------- */
+function makeFallbackDemoImage() {
   return new Promise((resolve) => {
     const W = 2520, H = 1080;
     const cv = document.createElement("canvas");
